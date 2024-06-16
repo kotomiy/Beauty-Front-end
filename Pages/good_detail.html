@@ -551,7 +551,7 @@
                     <input type="button" value="+" onclick="add()">
                     <!--<input type="number" value="1" min="1">-->
                     <!-- 加入購物車 -->
-                    <button>加入購物車</button>
+                    <button onclick="addToCart()">加入購物車</button>
                     <!-- 收藏icon -->
                     <i class="fa fa-heart-o" id="favorite-icon" onclick="toggleFavorite()"></i>
                 </div>                
@@ -680,6 +680,10 @@
                 alert('不好意思，我們沒有庫存喔');
         }
 
+        function addToCart() {
+            alert("已成功加入購物車🛒");
+        }
+
         document.getElementById('comment').addEventListener('focus', function () {
             if (this.value === '留下您的評論......') {
                 this.value = '';
@@ -709,6 +713,7 @@
         });
 
         function submitComment() {
+            alert("已成功送出，感謝您的評論！")
             const rating = document.querySelector('#starRating .fa-star.checked:last-child').getAttribute('data-rating');
             const commentText = document.getElementById('comment').value;
             comments.push({
