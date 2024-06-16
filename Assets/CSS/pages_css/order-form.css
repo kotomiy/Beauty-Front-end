@@ -1,0 +1,82 @@
+main {
+  height: 1280px;
+  padding: 100px 0;
+}
+.main-container {
+  padding: 10px;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+#bg-style {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #FFF5F5;
+  padding: 15px 20px 40px;
+  border-radius: 10px;
+}
+
+table {
+  width: 85%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+table th {
+  padding: 10px;
+}
+
+table tr:nth-child(10) td[colspan="2"] {
+  padding: 10px;
+}
+
+td > img {
+  width: 15px;
+  cursor: pointer;
+}
+
+.image-button img {
+  width: 100px;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: pink;
+}
+
+.other-products {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.other-products img {
+  border-radius: 10px;
+  width: 200px;
+}
+
+.other-product {
+  width: 33.33%;
+}
+
+.other-product div:nth-child(2) {
+  padding-top: 10px;
+}
+
+div input[type="submit"] {
+  width: 200px;
+  border: none;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+div input[type="submit"]:hover {
+  color: white;
+  background-color: pink;
+  font-weight: bold;
+}

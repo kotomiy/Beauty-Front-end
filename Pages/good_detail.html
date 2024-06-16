@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetic</title>
+    <link rel="stylesheet" href="../Assets/CSS/Bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../Assets/CSS/block/header.css">
+    <script src="../Assets/Js/Bootstarp/bootstrap.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background: #FFEDF7;
+            font-family: 'Georgia', serif;
+        }
+
+        .header-top {
+            background-color: #EBC6CC;
+        }
+
+        .header-bottom {
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 200px;
+        }
+
+        .header_Search {
+            margin-top: 4%;
+            text-align: center;
+        }
+
+        .search01 {
+            width: 300px;
+        }
+
+        .header-options {
+            list-style: none;
+            padding: 0;
+            text-align: right;
+        }
+
+        .header-options li {
+            display: inline;
+            padding: 1em;
+        }
+
+        .header-options li:hover {
+            font-weight: bold;
+        }
+
+        /* navigation=option's style */
+        .nav-options {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .nav-options li {
+            display: inline-block;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .nav-options img {
+            width: 100px;
+        }
+
+        .nav-options li img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .nav-options li:hover {
+            font-weight: bold;
+        }
+
+        /* submenu's style */
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%; 
+            left: 0;
+            background-color: #444;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 140px;
+            z-index: 1000;
+        }
+
+        .submenu-item {
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .submenu-item:hover {
+            background-color: #555;
+        }
+
+        /* display submenu */
+        .nav-options li:hover .submenu {
+            display: block;
+        }
+
+        /* marquee's style */
+        .marquee-container {
+            width: 100%;
+            position: relative;
+            height: 450px;
+            margin: 20px 0;
+        }
+
+        .marquee img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .marquee img.active {
+            opacity: 1;
+        }
+
+        .marquee-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .marquee-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* good-area's style */
+        .Goods_Area {
+            border-radius: 2.5%;
+            background: #F2CFD0;
+        }
+
+        .Goods_Area img {
+            width: 300px;
+            height: auto;
+        }
+
+        /* footer's style */
+        footer {
+            background: #edc2cd;
+        }
+
+        .footer_img01 {
+            width: 50px;
+            margin-left: -75%;
+        }
+
+        .footer_img02 {
+            width: 150px;
+            margin-left: 40%;
+            margin-bottom: 5%;
+        }
+
+        /* buttom's style */
+        .buttom01 {
+            width: 50px;
+            height: auto;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        /* dialog's style */
+        .dialog {
+            padding: 0.5em;
+            font-family: 微軟正黑體;
+            font-size: 1.17em;
+            line-height: 1.5em;
+            letter-spacing: 0.1em;
+            display: block;
+            text-align: justify;
+            display: none;
+        }
+
+        /* products-detail's style */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .product-images {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+        }
+
+        .main-image {
+            flex: 3;
+        }
+
+        .main-image img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .product-info {
+            flex: 2;
+            margin-left: 20px;
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding: 20px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #b12704;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        .product-description, .product-specs {
+            margin-bottom: 20px;
+            
+        }
+
+        .add-to-cart {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .add-to-cart i {
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .add-to-cart .quantity-container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .add-to-cart input {
+            width: 50px;
+            text-align: center;
+            border:none;
+            outline: none;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .add-to-cart input[type="number"] {
+            width: 100px;
+            text-align: center;
+        }
+
+        .add-to-cart button {
+            background-color: #FFEDF7;
+            border: none;
+            padding: 5px 100px;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 0 1px black;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart button:hover {
+            background-color: #FFC1D6;
+        }
+
+
+        .product-reviews {
+            margin-top: 20px;
+            /*background-color: #fff;*/
+            padding: 20px;
+            /*border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);*/
+        }
+        .comment-form {
+            margin-top: 20px;
+        }
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: #aaa;
+        }
+        .comment-form textarea:focus {
+            color: black;
+        }
+        .comment-form button{
+            background-color: #FFEDF7;
+            border: none;
+            padding: 1px 100px;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 0 1px black;
+            transition: background-color 0.3s;
+        }
+
+        .comment-form button:hover {
+            background-color: #FFC1D6;
+        }
+
+        .comment {
+            margin-bottom: 10px;
+        }
+        .comment .rating i {
+            color: gold;
+        }
+        .review {
+            margin-bottom: 20px;
+        }
+
+        .review .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .review .user-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .review .rating i {
+            color: gold;
+        }
+        .review .rating {
+            align-items: center;
+            display: flex;
+            gap: 5px;
+        }
+        .checked {
+        color: gold;
+        }
+        #star-rating input[type="radio"]:checked ~ label,
+        #star-rating label:hover,
+        #star-rating label:hover ~ label {
+        color: gold;}
+        #star-rating {
+        display: inline-flex;
+        background: transparent;
+        direction: rtl;
+        }
+        #star-rating input[type="radio"] {
+        display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <a href="../index.html"><img src="../Assets/Image/our logo.png" alt="" class="header-logo logo"></a>
+                    </div>
+                    <div class="col-5">
+                        <div class="header_Search">
+                            <form action="" method="">
+                                <div class="input-group">
+                                    <input type="text" class="search01" placeholder="Search">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <ul class="header-options">
+                            <li><a href="likes_goods.html">| 喜好項目 |</a></li>
+                            <li><a href="ShopCar.html">| 購物籃 |</a></li>
+                            <li><a href="javascript: $('#loggin').dialog({autoOpen: true, show:{effect:'drop', direction:'right', duration: 1500}, width: '350', height: 'auto', resizable: false});">
+                                | 登入 |</li>
+                            </a>
+                            <li><a href="register.html">| 加入會員 |</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="nav-options">
+                            <li>
+                                <a href="foundation_makeup.html"><img src="../Assets/Image/HeaderArea/header01.jpg"
+                                        alt=""></a><br /><a href="#basemakeup00">底妝
+                                    ▼</a>
+                                <ul class="submenu">
+                                    <a href="foundation_makeup.html#basemakeup00">
+                                        <li class="submenu-item">粉底液</li>
+                                    </a>
+                                    <a href="foundation_makeup.html#basemakeup01">
+                                        <li class="submenu-item">粉餅</li>
+                                    </a>
+                                    <a href="foundation_makeup.html#basemakeup02">
+                                        <li class="submenu-item">遮瑕膏</li>
+                                    </a>
+                                    <a href="foundation_makeup.html#basemakeup03">
+                                        <li class="submenu-item">妝前乳</li>
+                                    </a>
+                                    <a href="foundation_makeup.html#basemakeup04">
+                                        <li class="submenu-item">定裝噴霧</li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <li><a href="eye_makeup.html"><img src="../Assets/Image/HeaderArea/header02.jpg"
+                                        alt=""></a><br /><a href="#eyemakeup01">眼妝
+                                    ▼</a>
+                                <ul class="submenu">
+                                    <a href="eye_makeup.html#eyemakeup01">
+                                        <li class="submenu-item">眼影</li>
+                                    </a>
+                                    <a href="eye_makeup.html#eyemakeup02">
+                                        <li class="submenu-item">眼線</li>
+                                    </a>
+                                    <a href="eye_makeup.html#eyemakeup03">
+                                        <li class="submenu-item">睫毛膏</li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <li><a href="facial_makeup.html"><img src="../Assets/Image/HeaderArea/header03.jpg"
+                                        alt=""></a><br /><a href="#facemakeup01">臉妝
+                                    ▼</a>
+                                <ul class="submenu">
+                                    <a href="facial_makeup.html#facemakeup01">
+                                        <li class="submenu-item">腮紅</li>
+                                    </a>
+                                    <a href="facial_makeup.html#facemakeup02">
+                                        <li class="submenu-item">修容</li>
+                                    </a>
+                                    <a href="facial_makeup.html#facemakeup03">
+                                        <li class="submenu-item">高光</li>
+                                    </a>
+                                    <a href="facial_makeup.html#facemakeup04">
+                                        <li class="submenu-item">蜜粉</li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <li><a href="lip_makeup.html"><img src="../Assets/Image/HeaderArea/header04.jpg"
+                                        alt=""></a><br /><a href="#lipmakeup01">唇+眉
+                                    ▼</a>
+                                <ul class="submenu">
+                                    <a href="lip_makeup.html#lipmakeup01">
+                                        <li class="submenu-item">眉筆</li>
+                                    </a>
+                                    <a href="lip_makeup.html#lipmakeup02">
+                                        <li class="submenu-item">眉粉</li>
+                                    </a>
+                                    <a href="lip_makeup.html#lipmakeup03">
+                                        <li class="submenu-item">潤唇膏</li>
+                                    </a>
+                                    <a href="lip_makeup.html#lipmakeup04">
+                                        <li class="submenu-item">口紅</li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <a href="top_three_goods.html"><li><img src="../Assets/Image/HeaderArea/header05.jpg" alt=""><br />人氣商品</li>
+                            <a href="wishes_list.html"><li><img src="../Assets/Image/HeaderArea/header08.jpg" alt=""><br />許願清單</li>
+                            <a href="ourblog_area.html"><li><img src="../Assets/Image/HeaderArea/header09.jpg" alt=""><br />OurBlog</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--登入介面-->
+    <div title="登入" id="loggin" class="dialog">
+        <form action="">
+            <input type="text" placeholder="帳號"><br><br>
+            <input type="password" name="" id="" placeholder="密碼"><br><br>
+            <input type="submit" value="登入">
+        </form>
+    </div>
+    <!--登入介面-->
+
+
+    <!--輪播器-->
+
+
+    <div>
+        <a href="#"><img src="../Assets/Image/buttom_top.jpg" alt="" align="right" class="buttom01"></a>
+    </div>
+
+    <!--以上=滑到最上面的按鈕-->
+
+    
+
+    <div class="container">
+        <div class="product-detail">
+            <div class="product-images">
+                <div class="main-image">
+                    <img src="../Assets/Image/Products/powderfoundation/1028_pfoundation1.png" alt="Main Product Image" id="mainProductImage">
+                </div>
+            </div>
+            <div class="product-info">
+                <div class="product-title">底妝系列 | 1028粉餅</div>
+                <p>建議售價</p>
+                <div class="product-price">NT$450</div>
+                <div class="product-specs">
+                    <ul>
+                        <li>注意事項1</li>
+                        <li>注意事項2</li>
+                        <li>注意事項3</li>
+                    </ul>
+                </div>
+                <div class="add-to-cart">
+                    <input type="button" value="-" onclick="minus()">
+                    <input type="text" value="1" name="" id="output_num">
+                    <input type="button" value="+" onclick="add()">
+                    <!--<input type="number" value="1" min="1">-->
+                    <!-- 加入購物車 -->
+                    <button>加入購物車</button>
+                    <!-- 收藏icon -->
+                    <i class="fa fa-heart-o" id="favorite-icon" onclick="toggleFavorite()"></i>
+                </div>                
+            </div>
+        </div><hr>
+
+        <div class="product-description">
+            <h2>規格說明</h2>
+            <p>商品名：底妝系列 | 1028粉餅</p>
+            <p>顏色：膚色</p>
+            <p>防晒指数：SPF39・PA+++</p>
+            <p>容量：25ML</p>
+        </div><hr>
+
+        <div class="product-reviews">
+            <h2>客戶評論</h2>
+            <div id="review-list">
+                <div class="review">
+                    <div class="user-info">
+                        <div class="user-name">阿林</div>
+                        <div class="review-date">Nov. 23, 2023</div>
+                    </div>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>超滿足的一次購物體驗！產品質量優越，送貨速度也非常快。</p>
+                </div>
+                <div class="review">
+                    <div class="user-info">
+                        <div class="user-name">大頭</div>
+                        <div class="review-date">Nov. 22, 2023</div>
+                    </div>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>產品整體不錯，但有點小貴。</p>
+                </div>
+            </div>
+            <!-- 例：submit_comment.jsp -->
+            <!-- 跟後台連結處理data之後，顯示comment內容 -->
+
+            <div class="container">
+                <div class="comment-form">
+                    <div class="rating" id="starRating">
+                        <span class="fa fa-star" data-rating="1"></span>
+                        <span class="fa fa-star" data-rating="2"></span>
+                        <span class="fa fa-star" data-rating="3"></span>
+                        <span class="fa fa-star" data-rating="4"></span>
+                        <span class="fa fa-star" data-rating="5"></span>
+                    </div>
+                    <!-- 輸入comments -->
+                    <textarea id="comment" rows="4" placeholder="留下您的評論......"></textarea>
+                    <br>
+                    <button onclick="resetCommentForm()">重新</button>
+                    <button onclick="submitComment()">送出</button>
+                </div>
+                
+                <div id="comments-section">
+                    <!-- comments -->
+                </div>
+            </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="../Assets/Image/our logo.png" alt="" class="footer_img02">
+                            </div>
+                            <div class="col-6">
+                                <img src="../Assets/Image/111.png" alt="" class="" height="45px"><br>
+                                <img src="../Assets/Image/444.png" alt="" width="50px">
+                                <img src="../Assets/Image/333.png" alt="" height="45px">
+                            </div>
+                            <div class="col-2">
+                                <img src="../Assets/Image/222.png" alt="" class="footer_img01" width="50px">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        function toggleFavorite() {
+            var favoriteIcon = document.getElementById('favorite-icon');
+            if (favoriteIcon.classList.contains('fa-heart-o')) {
+                favoriteIcon.classList.remove('fa-heart-o');
+                favoriteIcon.classList.add('fa-heart');
+                favoriteIcon.style.color = 'red';
+            } else {
+                favoriteIcon.classList.remove('fa-heart');
+                favoriteIcon.classList.add('fa-heart-o');
+                favoriteIcon.style.color = '';
+            }
+        }
+
+        function minus(){
+            var num = Number(document.getElementById('output_num').value);
+            if(num >= 1){
+                document.getElementById('output_num').value = num - 1;
+            }else
+                alert('請您點選一個以上的商品');
+        }
+
+        function add(){
+            var num = Number(document.getElementById('output_num').value);
+            if(num <= 99){
+                document.getElementById('output_num').value = num + 1;
+            }else
+                alert('不好意思，我們沒有庫存喔');
+        }
+
+        document.getElementById('comment').addEventListener('focus', function () {
+            if (this.value === '留下您的評論......') {
+                this.value = '';
+                this.style.color = '#000';
+            }
+        });
+
+        document.getElementById('comment').addEventListener('blur', function () {
+            if (this.value === '') {
+                this.value = '留下您的評論......';
+                this.style.color = '#aaa';
+            }
+        });
+
+        const stars = document.querySelectorAll('#starRating .fa-star');
+
+        stars.forEach((star, index) => {
+            star.addEventListener('click', function() {
+                const rating = index + 1;
+                for (let i = 0; i <= index; i++) {
+                    stars[i].classList.add('checked');
+                }
+                for (let i = index + 1; i < stars.length; i++) {
+                    stars[i].classList.remove('checked');
+                }
+            });
+        });
+
+        function submitComment() {
+            const rating = document.querySelector('#starRating .fa-star.checked:last-child').getAttribute('data-rating');
+            const commentText = document.getElementById('comment').value;
+            comments.push({
+                rating: rating,
+                text: commentText === '留下您的評論......' ? '' : commentText
+            });
+            resetCommentForm();
+            displayComments();
+        }
+
+        function resetCommentForm() {
+            const stars = document.querySelectorAll('#starRating .fa-star');
+            stars.forEach(star => {
+                star.classList.remove('checked');
+            });
+            document.getElementById('comment').value = '留下您的評論......';
+            document.getElementById('comment').style.color = '#aaa';
+        }
+
+    </script>    
+</body>
+</html>

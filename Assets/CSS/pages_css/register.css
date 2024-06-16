@@ -1,0 +1,67 @@
+main {
+  height: 620px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-container {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+table {
+  border-collapse: collapse;
+  color: black;
+  width: 700px;
+  margin: 0 auto;
+  table-layout: fixed;
+}
+td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black; 
+}
+#table1 td:hover {
+  color: aliceblue;
+  background-color: pink;
+}
+input[type="submit"] {
+  width: 150px;
+  border: none;
+  background-color: lightgray;
+  color: black;
+  padding: 5px;
+  display: block;
+  margin: 20px auto 0;
+}
+hr {
+  width: 55%;
+  margin: auto;
+}
+button {
+  all: unset;
+}
+.hidden {
+  display: none;
+}
+#table2 td, #table3 td {
+  border: none; 
+  padding: 10px;
+  text-align: left;
+}
+#table2, #table3 {
+  width: 700px; 
+  border: 1px solid black; 
+}
+#table2 td:first-child, #table3 td:first-child {
+  width: 33.33%; 
+  text-align: right;
+}
+
+#table2 input[type="submit"], #table3 input[type="submit"] {
+  width: 100px;
+  border: none; 
+  background-color: lightgray;
+  border-radius: 10px; 
+  box-sizing: border-box; 
+}

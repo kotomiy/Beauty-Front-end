@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetic</title>
+    <link rel="stylesheet" href="../Assets/CSS/Bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../Assets/CSS/block/header.css">
+    <script src="../Assets/Js/Bootstarp/bootstrap.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <style>
+        .popular-products-table {
+            margin: 0 auto;
+            background-color: white;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        .popular-products-table th,
+        .popular-products-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .popular-products-table th {
+            background-color: #f2f2f2;
+        }
+
+        .popular-products-table td img {
+            width: 100%;
+        }
+
+        .popular-products-table th {
+            background-color: #c18888;
+            color: white;
+        }
+
+        .popular-products-table td {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <a href="../index.html"><img src="../Assets/Image/our logo.png" alt="" class="header-logo logo"></a>
+                    </div>
+                    <div class="col-5">
+                        <div class="header_Search">
+                            <form action="" method="">
+                                <div class="input-group">
+                                    <input type="text" class="search01" placeholder="Search">
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <ul class="header-options">
+                            <li><a href="likes_goods.html">| 喜好項目 |</a></li>
+                            <li><a href="ShopCar.html">| 購物籃 |</a></li>
+                            <li><a href="javascript: $('#loggin').dialog({autoOpen: true, show:{effect:'drop', direction:'right', duration: 1500}, width: '350', height: 'auto', resizable: false});">
+                                | 登入 |</li>
+                            </a>
+                            <li><a href="register.html">| 加入會員 |</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="nav-options">
+                            <li>
+                                <a href="foundation_makeup.html"><img src="../Assets/Image/HeaderArea/header01.jpg"
+                                        alt=""></a><br /><a href="#basemakeup00">底妝
+                                    ▼</a>
+                                <ul class="submenu">
+                                    <a href="foundation_makeup.html#basemakeup00">
+                                        <li class="submenu-item">粉底液</li>
+                                    </a>
+                                    <a href="foundation_makeup.html#basemakeup01">
+                                        <li class="submenu-item">粉餅</li>
+                                    </a>
+                                    <a href="foundation_makeup.html#basemakeup02">
+                                        <li class="submenu-item">遮瑕膏</li>
+                                    </a>
+                                    <a href="foundation_makeup.html#basemakeup03">
+                                        <li class="submenu-item">妝前乳</li>
+                                    </a>
+                                    <a href="foundation_makeup.html#basemakeup04">
+                                        <li class="submenu-item">定裝噴霧</li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <li><a href="eye_makeup.html"><img src="../Assets/Image/HeaderArea/header02.jpg"
+                                        alt=""></a><br /><a href="#eyemakeup01">眼妝
+                                    ▼</a>
+                                <ul class="submenu">
+                                    <a href="eye_makeup.html#eyemakeup01">
+                                        <li class="submenu-item">眼影</li>
+                                    </a>
+                                    <a href="eye_makeup.html#eyemakeup02">
+                                        <li class="submenu-item">眼線</li>
+                                    </a>
+                                    <a href="eye_makeup.html#eyemakeup03">
+                                        <li class="submenu-item">睫毛膏</li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <li><a href="facial_makeup.html"><img src="../Assets/Image/HeaderArea/header03.jpg"
+                                        alt=""></a><br /><a href="#facemakeup01">臉妝
+                                    ▼</a>
+                                <ul class="submenu">
+                                    <a href="facial_makeup.html#facemakeup01">
+                                        <li class="submenu-item">腮紅</li>
+                                    </a>
+                                    <a href="facial_makeup.html#facemakeup02">
+                                        <li class="submenu-item">修容</li>
+                                    </a>
+                                    <a href="facial_makeup.html#facemakeup03">
+                                        <li class="submenu-item">高光</li>
+                                    </a>
+                                    <a href="facial_makeup.html#facemakeup04">
+                                        <li class="submenu-item">蜜粉</li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <li><a href="lip_makeup.html"><img src="../Assets/Image/HeaderArea/header04.jpg"
+                                        alt=""></a><br /><a href="#lipmakeup01">唇+眉
+                                    ▼</a>
+                                <ul class="submenu">
+                                    <a href="lip_makeup.html#lipmakeup01">
+                                        <li class="submenu-item">眉筆</li>
+                                    </a>
+                                    <a href="lip_makeup.html#lipmakeup02">
+                                        <li class="submenu-item">眉粉</li>
+                                    </a>
+                                    <a href="lip_makeup.html#lipmakeup03">
+                                        <li class="submenu-item">潤唇膏</li>
+                                    </a>
+                                    <a href="lip_makeup.html#lipmakeup04">
+                                        <li class="submenu-item">口紅</li>
+                                    </a>
+                                </ul>
+                            </li>
+                            <a href="top_three_goods.html"><li><img src="../Assets/Image/HeaderArea/header05.jpg" alt=""><br />人氣商品</li>
+                            <a href="wishes_list.html"><li><img src="../Assets/Image/HeaderArea/header08.jpg" alt=""><br />許願清單</li>
+                            <a href="ourblog_area.html"><li><img src="../Assets/Image/HeaderArea/header09.jpg" alt=""><br />OurBlog</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--登入介面-->
+    <div title="登入" id="loggin" class="dialog">
+        <form action="">
+            <input type="text" placeholder="帳號"><br><br>
+            <input type="password" name="" id="" placeholder="密碼"><br><br>
+            <input type="submit" value="登入">
+        </form>
+    </div>
+    <!--登入介面-->
+
+    <!--輪播器-->
+    <div>
+        <a href="#"><img src="../Assets/Image/buttom_top.jpg" alt="" align="right" class="buttom01"></a>
+    </div>
+    <!--以上=滑到最上面的按鈕-->
+
+    <div class="marquee-container">
+        <div class="marquee">
+            <img src="../Assets/Image/Marquee/Mar01.jpg" alt="Mar01" class="active">
+            <img src="../Assets/Image/Marquee/Mar02.jpg" alt="Mar02">
+            <img src="../Assets/Image/Marquee/Mar03.jpg" alt="Mar03">
+            <img src="../Assets/Image/Marquee/Mar04.jpg" alt="Mar04">
+            <img src="../Assets/Image/Marquee/Mar05.jpg" alt="Mar05">
+            <img src="../Assets/Image/Marquee/Mar06.jpg" alt="Mar06">
+            <img src="../Assets/Image/Marquee/Mar07.jpg" alt="Mar07">
+            <img src="../Assets/Image/Marquee/Mar08.jpg" alt="Mar08">
+            <img src="../Assets/Image/Marquee/Mar09.jpg" alt="Mar09">
+            <img src="../Assets/Image/Marquee/Mar10.jpg" alt="Mar10">
+        </div>
+        <div class="marquee-buttons">
+            <button class="marquee-button" id="prev">&#10094;</button>
+            <button class="marquee-button" id="next">&#10095;</button>
+        </div>
+    </div>
+    <!--輪播器-->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="popular-products-table">
+                    <tr>
+                        <th>喜好項目</th>
+                        <th>喜好項目</th>
+                        <th>喜好項目</th>
+                    </tr>
+                    <tr>
+                        <td><img src="../Assets/Image/GoodArea/cos01.jpg" alt="Product 1"></td>
+                        <td><img src="../Assets/Image/GoodArea/cos01.jpg" alt="Product 2"></td>
+                        <td><img src="../Assets/Image/GoodArea/cos01.jpg" alt="Product 3"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div><br>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="../Assets/Image/our logo.png" alt="" class="footer_img02">
+                            </div>
+                            <div class="col-6">
+                                <img src="../Assets/Image/111.png" alt="" class="" height="45px"><br>
+                                <img src="../Assets/Image/444.png" alt="" width="50px">
+                                <img src="../Assets/Image/333.png" alt="" height="45px">
+                            </div>
+                            <div class="col-2">
+                                <img src="../Assets/Image/222.png" alt="" class="footer_img01" width="50px">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        const images = document.querySelectorAll('.marquee img');
+        let currentIndex = 0;
+        const totalImages = images.length;
+
+        function showImage(index) {
+            images.forEach((img, i) => {
+                img.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % totalImages;
+            showImage(currentIndex);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            showImage(currentIndex);
+        }
+
+        document.getElementById('next').addEventListener('click', nextImage);
+        document.getElementById('prev').addEventListener('click', prevImage);
+
+        setInterval(nextImage, 2000);
+    </script>
+</body>
+
+</html>

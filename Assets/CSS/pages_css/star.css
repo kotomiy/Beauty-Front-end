@@ -1,0 +1,16 @@
+/* 星星 */
+.checked {
+  color: gold;
+  }
+  #star-rating input[type="radio"]:checked ~ label,/*滑鼠點擊*/
+  #star-rating label:hover,/*滑鼠指到的*/
+  #star-rating label:hover ~ label /*所有前面星星*/{
+  color: gold;}
+  #star-rating {
+  display: inline-flex;
+  background: transparent;
+  direction: rtl;
+  }
+  #star-rating input[type="radio"] {
+  display: none;
+  }

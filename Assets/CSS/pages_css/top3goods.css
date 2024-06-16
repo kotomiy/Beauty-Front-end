@@ -1,0 +1,60 @@
+.popular-products-table {
+  margin: 0 auto;
+  background-color: white;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+
+
+.popular-products-table th,
+.popular-products-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.popular-products-table th {
+  background-color: #c18888;
+  color: white;
+}
+
+.popular-products-table td {
+  background-color: white;
+}
+
+.popular-products-table td img {
+  width: 100%;
+}
+/*
+.product-info {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.product-info .name {
+  font-size: 1.5em;
+  font-family: 'Times New Roman', serif;
+}
+
+.product-info .rating {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-info .rating .fa-star {
+  color: gold;
+}
+*/
+.product-info .rating small {
+  margin-left: 8px;
+  font-size: 0.8em;
+  color: #555;
+}
+
+.product-info .price {
+  font-size: 1.3em;
+  font-family: 'Courier New', monospace;
+}
+
